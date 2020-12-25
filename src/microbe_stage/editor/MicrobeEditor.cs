@@ -395,6 +395,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
         organelleMenu.Items[0] = TranslationServer.Translate("MOVE");
         organelleMenu.Items[1] = TranslationServer.Translate("DELETE");
+        organelleMenu.Items[2] = TranslationServer.Translate("MODIFY");
     }
 
     public override void _ExitTree()
@@ -733,7 +734,17 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
     public void MoveOrganelle()
     {
-        return;
+        // var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
+
+        // // Dont allow deletion of nucleus or the last organelle
+        // if (organelleHere.Definition.InternalName == "nucleus" || MicrobeSize < 2)
+        //     return;
+
+        // var action = new MicrobeEditorAction(this, Constants.ORGANELLE_MOVE_COST,
+        //     DoOrganelleMoveAction, UndoOrganelleMoveAction,
+        //     new MoveActionData(organelleHere));
+
+        // EnqueueAction(action);
     }
 
     public void RemoveOrganelle()
@@ -1636,6 +1647,22 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     {
         var data = (RemoveActionData)action.Data;
         editedMicrobeOrganelles.Add(data.Organelle);
+    }
+
+    [DeserializedCallbackAllowed]
+    private void DoOrganelleMoveAction(MicrobeEditorAction action)
+    {
+        var data = (MoveActionData)action.Data;
+        editedMicrobeOrganelles.Remove(data.OldOrganelle);
+        editedMicrobeOrganelles.Add(data.NewOrganelle);
+    }
+
+    [DeserializedCallbackAllowed]
+    private void UndoOrganelleMoveAction(MicrobeEditorAction action)
+    {
+        var data = (MoveActionData)action.Data;
+        editedMicrobeOrganelles.Add(data.OldOrganelle);
+        editedMicrobeOrganelles.Remove(data.NewOrganelle);
     }
 
     private void RemoveOrganelleAt(Hex location)

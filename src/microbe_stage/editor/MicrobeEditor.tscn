@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://src/microbe_stage/MicrobeCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/microbe_stage/editor/MicrobeEditor.cs" type="Script" id=2]
@@ -103,6 +103,7 @@
 [ext_resource path="res://src/gui_common/fonts/Jura-Regular-Smaller.tres" type="DynamicFont" id=101]
 [ext_resource path="res://src/gui_common/fonts/Lato-Regular-Smaller.tres" type="DynamicFont" id=102]
 [ext_resource path="res://assets/textures/gui/bevel/editorButtonDelete.png" type="Texture" id=103]
+[ext_resource path="res://assets/textures/gui/bevel/editorButtonModify.png" type="Texture" id=104]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.435294, 0.52549, 1 )
@@ -5264,7 +5265,7 @@ HelpCategory = "MicrobeEditor"
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 53 )
-items = [ "MOVE", ExtResource( 55 ), 0, false, false, 0, 0, null, "", false, "DELETE", ExtResource( 103 ), 0, false, false, 1, 0, null, "", false ]
+items = [ "MOVE", ExtResource( 55 ), 0, false, false, 0, 0, null, "", false, "DELETE", ExtResource( 103 ), 0, false, false, 1, 0, null, "", false, "MODIFY", ExtResource( 104 ), 0, false, true, 2, 0, null, "", false ]
 hide_on_checkable_item_selection = false
 __meta__ = {
 "_edit_use_anchors_": false

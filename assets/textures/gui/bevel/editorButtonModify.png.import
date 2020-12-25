@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/editorButtonMove.png-73bf490a4e750fbc5296a22280e164a0.stex"
+path="res://.import/editorButtonModify.png-cc60fa3eac181bc0d0f390a896e957af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/gui/bevel/editorButtonMove.png"
-dest_files=[ "res://.import/editorButtonMove.png-73bf490a4e750fbc5296a22280e164a0.stex" ]
+source_file="res://assets/textures/gui/bevel/editorButtonModify.png"
+dest_files=[ "res://.import/editorButtonModify.png-cc60fa3eac181bc0d0f390a896e957af.stex" ]
 
 [params]
 
