@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://src/microbe_stage/MicrobeCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/microbe_stage/editor/MicrobeEditor.cs" type="Script" id=2]
@@ -54,6 +54,7 @@
 [ext_resource path="res://src/general/PauseMenu.tscn" type="PackedScene" id=52]
 [ext_resource path="res://src/gui_common/thrive_theme.tres" type="Theme" id=53]
 [ext_resource path="res://src/microbe_stage/editor/PatchMapDrawer.tscn" type="PackedScene" id=54]
+[ext_resource path="res://assets/textures/gui/bevel/editorButtonMove.png" type="Texture" id=55]
 [ext_resource path="res://src/gui_common/fonts/Jura-DemiBold-AlmostHuge.tres" type="DynamicFont" id=56]
 [ext_resource path="res://assets/textures/gui/bevel/sunlight.png" type="Texture" id=57]
 [ext_resource path="res://assets/textures/gui/bevel/nitrogen.png" type="Texture" id=58]
@@ -101,6 +102,7 @@
 [ext_resource path="res://src/gui_common/fonts/Jura-Regular-Big.tres" type="DynamicFont" id=100]
 [ext_resource path="res://src/gui_common/fonts/Jura-Regular-Smaller.tres" type="DynamicFont" id=101]
 [ext_resource path="res://src/gui_common/fonts/Lato-Regular-Smaller.tres" type="DynamicFont" id=102]
+[ext_resource path="res://assets/textures/gui/bevel/editorButtonDelete.png" type="Texture" id=103]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.435294, 0.52549, 1 )
@@ -788,6 +790,7 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 PauseMenuPath = NodePath("PauseMenu")
+OrganelleMenuPath = NodePath("OrganellePopup")
 
 [node name="PrimaryCamera" parent="." instance=ExtResource( 1 )]
 DefaultCameraHeight = 10.0
@@ -3794,10 +3797,10 @@ size_flags_horizontal = 3
 custom_styles/separator = SubResource( 29 )
 
 [node name="ColorPicker" type="ColorPicker" parent="MicrobeEditorGUI/CellEditor/LeftPanel/MainPanel/VBoxContainer/MarginContainer/VBoxContainer/Appearance/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_left = 28.0
-margin_top = 51.0
-margin_right = 385.0
-margin_bottom = 500.0
+margin_left = 32.0
+margin_top = 55.0
+margin_right = 389.0
+margin_bottom = 504.0
 theme = SubResource( 30 )
 edit_alpha = false
 
@@ -5256,6 +5259,16 @@ CellEditorClosingWordsPath = NodePath("../TutorialGUI/CellEditorClosingWords")
 visible = false
 theme = ExtResource( 53 )
 HelpCategory = "MicrobeEditor"
+
+[node name="OrganellePopup" type="PopupMenu" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 53 )
+items = [ "MOVE", ExtResource( 55 ), 0, false, false, 0, 0, null, "", false, "DELETE", ExtResource( 103 ), 0, false, false, 1, 0, null, "", false ]
+hide_on_checkable_item_selection = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="InsufficientMPToPlaceHex" from="." to="MicrobeEditorGUI" method="OnInsufficientMPToPlaceHex"]
 [connection signal="InvalidPlacementOfHex" from="." to="MicrobeEditorGUI" method="OnInvalidHexLocationSelected"]
 [connection signal="mouse_entered" from="MicrobeEditorGUI/TopLeft" to="MicrobeEditorGUI" method="OnMouseEnter"]
@@ -5348,3 +5361,4 @@ HelpCategory = "MicrobeEditor"
 [connection signal="MakeSave" from="PauseMenu" to="." method="SaveGame"]
 [connection signal="OnClosed" from="PauseMenu" to="MicrobeEditorGUI" method="CloseMenu"]
 [connection signal="OnOpenWithKeyPress" from="PauseMenu" to="MicrobeEditorGUI" method="OpenMenu"]
+[connection signal="id_pressed" from="OrganellePopup" to="." method="OnOrganellePopupPressed"]

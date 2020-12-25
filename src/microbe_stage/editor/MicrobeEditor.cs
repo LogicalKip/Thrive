@@ -15,6 +15,9 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     [Export]
     public NodePath PauseMenuPath;
 
+    [Export]
+    public NodePath OrganelleMenuPath;
+
     /// <summary>
     ///   The new to set on the species after exiting
     /// </summary>
@@ -30,6 +33,8 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     private Vector3 arrowPosition = Vector3.Zero;
 
     private MicrobeSymmetry symmetry = MicrobeSymmetry.None;
+
+    private Hex selectedHex;
 
     /// <summary>
     ///   Object camera is over. Needs to be defined before camera for saving to work
@@ -52,6 +57,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     private Node world;
     private MicrobeEditorTutorialGUI tutorialGUI;
     private PauseMenu pauseMenu;
+    private PopupMenu organelleMenu;
 
     /// <summary>
     ///   Where all user actions will  be registered
@@ -385,6 +391,10 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         gui = GetNode<MicrobeEditorGUI>("MicrobeEditorGUI");
         tutorialGUI = GetNode<MicrobeEditorTutorialGUI>("TutorialGUI");
         pauseMenu = GetNode<PauseMenu>(PauseMenuPath);
+        organelleMenu = GetNode<PopupMenu>(OrganelleMenuPath);
+
+        organelleMenu.Items[0] = TranslationServer.Translate("MOVE");
+        organelleMenu.Items[1] = TranslationServer.Translate("DELETE");
     }
 
     public override void _ExitTree()
@@ -708,12 +718,27 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     }
 
     /// <summary>
-    ///   Removes organelles under the cursor
+    ///   Show options for the organelle under the cursor
     /// </summary>
     [RunOnKeyDown("e_secondary")]
-    public void RemoveOrganelle()
+    public void ShowOrganelleOptions()
     {
         GetMouseHex(out int q, out int r);
+        if (editedMicrobeOrganelles.GetOrganelleAt(new Hex(q, r)) == null)
+            return;
+        selectedHex = new Hex(q, r);
+        organelleMenu.RectPosition = GetViewport().GetMousePosition();
+        organelleMenu.Popup_();
+    }
+
+    public void MoveOrganelle()
+    {
+        return;
+    }
+
+    public void RemoveOrganelle()
+    {
+        int q = selectedHex.Q, r = selectedHex.R;
 
         switch (Symmetry)
         {
@@ -940,6 +965,19 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
         if (!IsLoadedFromSave)
             TutorialState.SendEvent(TutorialEventType.EnteredMicrobeEditor, EventArgs.Empty, this);
+    }
+
+    private void OnOrganellePopupPressed(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                MoveOrganelle();
+                break;
+            case 1:
+                RemoveOrganelle();
+                break;
+        }
     }
 
     private void StartMusic()
