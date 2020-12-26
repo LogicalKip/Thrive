@@ -30,6 +30,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     [JsonProperty]
     public float CurrentOrganelleCost;
 
+    /// <summary>
+    ///   The organelle type that is selected to be used but not necessarily rendered
+    /// </summary>
+    public string SelectedActionName;
+
     private Vector3 arrowPosition = Vector3.Zero;
 
     private MicrobeSymmetry symmetry = MicrobeSymmetry.None;
@@ -185,11 +190,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     ///   Null if the user is not panning with the mouse
     /// </summary>
     private Vector3? mousePanningStart;
-
-    /// <summary>
-    ///   The organelle type that is selected to be used but not necessarily rendered
-    /// </summary>
-    public string SelectedActionName;
 
     [Signal]
     public delegate void InvalidPlacementOfHex();
@@ -1697,6 +1697,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         editedMicrobeOrganelles.Remove(data.Organelle);
         data.Organelle.Position = data.NewLocation;
         editedMicrobeOrganelles.Add(data.Organelle);
+        data.Organelle.MovedThisSession = true;
     }
 
     [DeserializedCallbackAllowed]
@@ -1706,6 +1707,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         editedMicrobeOrganelles.Remove(data.Organelle);
         data.Organelle.Position = data.OldLocation;
         editedMicrobeOrganelles.Add(data.Organelle);
+        data.Organelle.MovedThisSession = false;
     }
 
     private void MoveOrganelle(Hex oldLocation, Hex newLocation)
