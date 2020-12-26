@@ -37,6 +37,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     private Hex selectedHex;
 
     /// <summary>
+    ///   If an organelle is in the process of being moved but a new location hasn't been selected yet
+    /// </summary>
+    private bool isMovingOrganelle = false;
+
+    /// <summary>
     ///   Object camera is over. Needs to be defined before camera for saving to work
     /// </summary>
     [JsonProperty]
@@ -237,7 +242,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     public Color Colour { get; set; }
 
     /// <summary>
-    ///   The name of organelle type that is selected to be placed
+    ///   The name of organelle type that is rendered to be placed
     /// </summary>
     [JsonIgnore]
     public string ActiveActionName
@@ -254,6 +259,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             activeActionName = value;
         }
     }
+
+    /// <summary>
+    ///   The organelle type that is selected to be used but not necessarily rendered
+    /// </summary>
+    public string SelectedActionName;
 
     /// <summary>
     ///   The number of mutation points left
@@ -466,6 +476,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         {
             var organelleToAdd = (OrganelleTemplate)organelle.Clone();
             organelleToAdd.PlacedThisSession = false;
+            organelleToAdd.MovedThisSession = false;
             editedSpecies.Organelles.Add(organelleToAdd);
         }
 
@@ -646,6 +657,21 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         if (ActiveActionName == null)
             return;
 
+        if (isMovingOrganelle)
+        {
+            isMovingOrganelle = false;
+            ActiveActionName = SelectedActionName;
+            GetMouseHex(out int q, out int r);
+            var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(new Hex(q, r));
+            if (organelleHere != null)
+                return;
+
+            MoveOrganelle(selectedHex, new Hex(q, r));
+            organelleHere = editedMicrobeOrganelles.GetOrganelleAt(new Hex(q, r));
+            organelleHere.MovedThisSession = true;
+            return;
+        }
+
         if (AddOrganelle(ActiveActionName))
         {
             // Only trigger tutorial if something was really placed
@@ -732,19 +758,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         organelleMenu.Popup_();
     }
 
-    public void MoveOrganelle()
+    public void MovingOrganelle()
     {
-        // var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
-
-        // // Dont allow deletion of nucleus or the last organelle
-        // if (organelleHere.Definition.InternalName == "nucleus" || MicrobeSize < 2)
-        //     return;
-
-        // var action = new MicrobeEditorAction(this, Constants.ORGANELLE_MOVE_COST,
-        //     DoOrganelleMoveAction, UndoOrganelleMoveAction,
-        //     new MoveActionData(organelleHere));
-
-        // EnqueueAction(action);
+        var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
+        ActiveActionName = organelleHere.Definition.InternalName;
+        isMovingOrganelle = true;
     }
 
     public void RemoveOrganelle()
@@ -983,7 +1001,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         switch (id)
         {
             case 0:
-                MoveOrganelle();
+                MovingOrganelle();
                 break;
             case 1:
                 RemoveOrganelle();
@@ -1649,22 +1667,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         editedMicrobeOrganelles.Add(data.Organelle);
     }
 
-    [DeserializedCallbackAllowed]
-    private void DoOrganelleMoveAction(MicrobeEditorAction action)
-    {
-        var data = (MoveActionData)action.Data;
-        editedMicrobeOrganelles.Remove(data.OldOrganelle);
-        editedMicrobeOrganelles.Add(data.NewOrganelle);
-    }
-
-    [DeserializedCallbackAllowed]
-    private void UndoOrganelleMoveAction(MicrobeEditorAction action)
-    {
-        var data = (MoveActionData)action.Data;
-        editedMicrobeOrganelles.Add(data.OldOrganelle);
-        editedMicrobeOrganelles.Remove(data.NewOrganelle);
-    }
-
     private void RemoveOrganelleAt(Hex location)
     {
         var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(location);
@@ -1683,6 +1685,42 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         var action = new MicrobeEditorAction(this, cost,
             DoOrganelleRemoveAction, UndoOrganelleRemoveAction,
             new RemoveActionData(organelleHere));
+
+        EnqueueAction(action);
+    }
+
+    [DeserializedCallbackAllowed]
+    private void DoOrganelleMoveAction(MicrobeEditorAction action)
+    {
+        var data = (MoveActionData)action.Data;
+        editedMicrobeOrganelles.Remove(data.Organelle);
+        data.Organelle.Position = data.NewLocation;
+        editedMicrobeOrganelles.Add(data.Organelle);
+    }
+
+    [DeserializedCallbackAllowed]
+    private void UndoOrganelleMoveAction(MicrobeEditorAction action)
+    {
+        var data = (MoveActionData)action.Data;
+        editedMicrobeOrganelles.Remove(data.Organelle);
+        data.Organelle.Position = data.OldLocation;
+        editedMicrobeOrganelles.Add(data.Organelle);
+    }
+
+    public void MoveOrganelle(Hex oldLocation, Hex newLocation)
+    {
+        var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(oldLocation);
+
+        // Dont allow deletion of nucleus or the last organelle
+        if (organelleHere.Definition.InternalName == "nucleus" || MicrobeSize < 2)
+            return;
+
+        // If it was moved this session, it is free to move again
+        int cost = organelleHere.MovedThisSession ? 0 : Constants.ORGANELLE_MOVE_COST;
+
+        var action = new MicrobeEditorAction(this, cost,
+            DoOrganelleMoveAction, UndoOrganelleMoveAction,
+            new MoveActionData(organelleHere, oldLocation, newLocation));
 
         EnqueueAction(action);
     }
