@@ -186,6 +186,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     /// </summary>
     private Vector3? mousePanningStart;
 
+    /// <summary>
+    ///   The organelle type that is selected to be used but not necessarily rendered
+    /// </summary>
+    public string SelectedActionName;
+
     [Signal]
     public delegate void InvalidPlacementOfHex();
 
@@ -240,11 +245,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     /// </summary>
     [JsonProperty]
     public Color Colour { get; set; }
-
-    /// <summary>
-    ///   The organelle type that is selected to be used but not necessarily rendered
-    /// </summary>
-    public string SelectedActionName;
 
     /// <summary>
     ///   The name of organelle type that is rendered to be placed
