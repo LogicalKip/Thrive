@@ -217,6 +217,9 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     public NodePath IslandErrorPath;
 
     [Export]
+    public NodePath OrganelleMenuPath;
+
+    [Export]
     public NodePath SymmetryIconPath;
 
     [Export]
@@ -251,6 +254,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     private readonly Compound sunlight = SimulationParameters.Instance.GetCompound("sunlight");
 
     private readonly OrganelleDefinition protoplasm = SimulationParameters.Instance.GetOrganelleType("protoplasm");
+    private readonly OrganelleDefinition nucleus = SimulationParameters.Instance.GetOrganelleType("nucleus");
 
     private readonly List<ToolTipCallbackData> tooltipCallbacks = new List<ToolTipCallbackData>();
     private readonly List<ToolTipCallbackData> processesTooltipCallbacks = new List<ToolTipCallbackData>();
@@ -355,6 +359,8 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
 
     private ConfirmationDialog negativeAtpPopup;
     private AcceptDialog islandPopup;
+
+    private OrganellePopupMenu organelleMenu;
 
     private TextureButton menuButton;
     private TextureButton helpButton;
@@ -466,6 +472,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
 
         negativeAtpPopup = GetNode<ConfirmationDialog>(NegativeAtpPopupPath);
         islandPopup = GetNode<AcceptDialog>(IslandErrorPath);
+        organelleMenu = GetNode<OrganellePopupMenu>(OrganelleMenuPath);
 
         menu = GetNode<PauseMenu>(MenuPath);
 
@@ -793,6 +800,27 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     {
         autoEvoLabel.Text = results;
         externalEffectsLabel.Text = external;
+    }
+
+    public void ShowOrganelleMenu(OrganelleTemplate selectedOrganelle)
+    {
+        organelleMenu.SelectedOrganelle = selectedOrganelle;
+
+        // Disable delete/move option for nucleus or the last organelle.
+        if (selectedOrganelle.Definition.Name == nucleus.Name || editor.MicrobeSize < 2)
+        {
+            organelleMenu.EnableDeleteOption = false;
+            organelleMenu.EnableMoveOption = false;
+        }
+        else
+        {
+            organelleMenu.EnableDeleteOption = true;
+            organelleMenu.EnableMoveOption = true;
+        }
+
+        organelleMenu.RectPosition = GetViewport().GetMousePosition();
+        organelleMenu.Popup_();
+        organelleMenu.RectSize = organelleMenu.RectMinSize;
     }
 
     /// <summary>

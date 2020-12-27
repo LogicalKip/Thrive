@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-25 00:14-0800\n"
+"POT-Creation-Date: 2020-12-27 15:58+0700\n"
 "PO-Revision-Date: 2020-12-22 07:32+0000\n"
 "Last-Translator: icedjuro <milandjurovic625@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate."
@@ -42,8 +42,8 @@ msgstr ""
 #: ../simulation_parameters/common/help_texts.json:32
 msgid "MICROBE_STAGE_HELP_MESSAGE_4"
 msgstr ""
-"你也可以通過按G鍵吞噬比你小的細胞，細菌，鐵塊和細胞塊，這將會花費額外的ATP"
-"(三磷酸腺苷)，並且會讓你的速度變慢。不要忘記按第二次G來停止吞噬。"
+"你也可以通過按G鍵吞噬比你小的細胞，細菌，鐵塊和細胞塊，這將會花費額外的"
+"ATP(三磷酸腺苷)，並且會讓你的速度變慢。不要忘記按第二次G來停止吞噬。"
 
 #: ../simulation_parameters/common/help_texts.json:8
 #: ../simulation_parameters/common/help_texts.json:33
@@ -349,7 +349,7 @@ msgid "ZOOM_IN"
 msgstr ""
 
 #: ../simulation_parameters/common/input_options.json:67
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:977
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:975
 msgid "EDITOR"
 msgstr "編輯器"
 
@@ -681,21 +681,21 @@ msgstr "陽光"
 #: ../simulation_parameters/microbe_stage/organelles.json:23
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2711
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2775
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2435
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2433
 msgid "PREDATORY_PILUS"
 msgstr "掠食性菌毛"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:52
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1525
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1589
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2087
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2085
 msgid "RUSTICYANIN"
 msgstr "鐵硫菌藍蛋白"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:85
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1842
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1906
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2152
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2150
 msgid "NITROGENASE"
 msgstr "固氮酶"
 
@@ -712,7 +712,7 @@ msgstr "化學合成蛋白"
 #: ../simulation_parameters/microbe_stage/organelles.json:184
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2129
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2193
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2217
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2215
 msgid "OXYTOXISOME"
 msgstr ""
 
@@ -724,70 +724,70 @@ msgstr "類囊體"
 #: ../simulation_parameters/microbe_stage/organelles.json:249
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:593
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:657
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1890
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1888
 msgid "METABOLOSOMES"
 msgstr "代謝體"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:285
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4328
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4392
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2983
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2981
 msgid "NITROGEN_FIXING_PLASTID"
 msgstr "固氮質體"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:321
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4044
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4108
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2915
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2913
 msgid "CHEMOPLAST"
 msgstr "化學質體"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:351
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2428
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2492
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2371
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2369
 msgid "FLAGELLUM"
 msgstr "鞭毛"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:378
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4645
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4709
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3050
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3048
 msgid "VACUOLE"
 msgstr "液泡"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:411
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3165
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3229
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2719
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2717
 msgid "MITOCHONDRION"
 msgstr "線粒體"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:444
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4846
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4910
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3117
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3115
 msgid "TOXIN_VACUOLE"
 msgstr "毒素液泡"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:484
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3452
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3516
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2784
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2782
 msgid "CHLOROPLAST"
 msgstr "葉綠體"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:513
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:341
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:405
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1732
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1730
 msgid "CYTOPLASM"
 msgstr "細胞質"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:578
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2963
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3027
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2654
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2652
 msgid "NUCLEUS"
 msgstr "細胞核"
 
@@ -1145,7 +1145,7 @@ msgid "LOAD_GAME"
 msgstr "讀取遊戲"
 
 #: ../src/general/PauseMenu.tscn:79
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4221
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4219
 msgid "STATISTICS"
 msgstr "統計數據"
 
@@ -1384,7 +1384,7 @@ msgstr ""
 "一些糖酵解。"
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:886
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1955
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1953
 msgid "THYLAKOID"
 msgstr "類囊體"
 
@@ -1514,7 +1514,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2837
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2901
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2499
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2497
 msgid "CILIA"
 msgstr "纖毛"
 
@@ -1545,7 +1545,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3752
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3816
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2849
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2847
 msgid "THERMOPLAST"
 msgstr ""
 
@@ -1605,7 +1605,7 @@ msgstr "生物發光液泡"
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5292
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5356
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3371
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3369
 msgid "NORMAL"
 msgstr "正常"
 
@@ -1624,7 +1624,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5552
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5616
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3441
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3439
 msgid "DOUBLE"
 msgstr ""
 
@@ -1634,7 +1634,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5808
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5872
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3511
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3509
 msgid "CELLULOSE"
 msgstr "纖維素"
 
@@ -1657,7 +1657,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6135
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6199
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3581
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3579
 msgid "CHITIN"
 msgstr "幾丁質"
 
@@ -1673,7 +1673,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6462
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6526
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3656
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3654
 msgid "CALCIUM_CARBONATE"
 msgstr "碳酸鈣"
 
@@ -1683,7 +1683,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6823
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6887
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3728
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3726
 msgid "SILICA"
 msgstr "二氧化矽"
 
@@ -1757,7 +1757,7 @@ msgid "PRESSURE_SHORT"
 msgstr "壓強"
 
 #: ../src/microbe_stage/MicrobeStage.tscn:1029
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4823
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4821
 msgid "COMPOUNDS"
 msgstr "化合物"
 
@@ -1813,250 +1813,250 @@ msgstr "冰架"
 msgid "PATCH_PANGONIAN_SEAFLOOR"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:396
-#, fuzzy
-msgid "MOVE"
-msgstr "光"
-
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:397
-msgid "DELETE"
-msgstr ""
-
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:398
-msgid "MODIFY"
-msgstr ""
-
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:528
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:530
 #: ../src/microbe_stage/editor/MicrobeEditor.cs:1124
 msgid "LOADING_MICROBE_EDITOR"
 msgstr "在加載微生物編輯器"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:530
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:532
 msgid "WAITING_FOR_AUTO_EVO"
 msgstr "等待自動進化："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:1953
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:1975
 msgid "AUTO_EVO_FAILED"
 msgstr "自動進化啟動失敗"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:1954
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:1976
 msgid "AUTO_EVO_RUN_STATUS"
 msgstr "運行狀態："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:935
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:933
 msgid "REPORT"
 msgstr "報告"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:956
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:954
 msgid "PATCH_MAP"
 msgstr "區域地圖"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1033
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1031
 msgid "ORGANISM_STATISTICS"
 msgstr "生物統計"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1079
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1077
 msgid "SPEED_COLON"
 msgstr "速度："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1109
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1107
 msgid "HP_COLON"
 msgstr "生命值："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1139
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1137
 msgid "SIZE_COLON"
 msgstr "大小："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1160
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1158
 msgid "GENERATION_COLON"
 msgstr "代："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1202
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1200
 msgid "ATP_BALANCE"
 msgstr "ATP平衡"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1392
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1390
 msgid "MUTATION_POINTS"
 msgstr "突變點數"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1480
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1478
 msgid "STRUCTURE"
 msgstr "結構"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1503
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1501
 msgid "APPEARANCE"
 msgstr "出現"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1526
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1524
 msgid "BEHAVIOR"
 msgstr "行為"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1577
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1575
 msgid "SEARCH_DOT_DOT_DOT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1637
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1635
 msgid "STRUCTURAL"
 msgstr "結構性"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1799
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1797
 msgid "PROTEINS"
 msgstr "蛋白質"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2022
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2020
 msgid "CHEMOSYNTHESIZING_PROTEINS_TWO_LINES"
 msgstr "化學合成蛋白質"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2281
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2279
 msgid "EXTERNAL"
 msgstr "外部"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2563
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2561
 msgid "ORGANELLES"
 msgstr "細胞器"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3143
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3141
 msgid "N_A_MP"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3181
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3179
 msgid "BIOLUMESCENT_VACUOLE"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3278
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3276
 msgid "MEMBRANE_TYPES"
 msgstr "膜類型"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3751
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3749
 msgid "FLUIDITY_RIGIDITY"
 msgstr "流動性/剛性"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3789
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3787
 msgid "COLOUR"
 msgstr "顏色"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3934
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3932
 msgid "SPECIES_NAME_DOT_DOT_DOT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3961
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3959
 msgid "CONFIRM_CAPITAL"
 msgstr "確認"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3970
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3968
 msgid "NEGATIVE_ATP_BALANCE"
 msgstr "負 ATP平衡"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3971
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3969
 msgid "NEGATIVE_ATP_BALANCE_TEXT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3979
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3977
 msgid "DISCONNECTED_ORGANELLES"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3980
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3978
 msgid "DISCONNECTED_ORGANELLES_TEXT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4046
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4044
 msgid "PATCH_NAME"
 msgstr "區域名字"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4080
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4078
 msgid "AUTO_EVO"
 msgstr "自動進化"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4094
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4092
 msgid "FOOD_CHAIN"
 msgstr "食物鏈"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4108
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4106
 msgid "TIMELINE"
 msgstr "時間線"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4161
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4159
 msgid "AUTO_EVO_RESULTS"
 msgstr "自動進化 結果："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4180
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4178
 msgid "EXTERNAL_EFFECTS"
 msgstr "外部影響："
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4246
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5168
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4244
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5166
 #, fuzzy
 msgid "NEXT_CAPITAL"
 msgstr "下一頁"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4360
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4358
 msgid "SELECT_A_PATCH"
 msgstr "選擇一個區域以在此處顯示詳細信息"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4395
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4393
 msgid "CURRENT_LOCATION_CAPITAL"
 msgstr "當前位置"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4475
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4473
 msgid "PHYSICAL_CONDITIONS"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4658
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4656
 msgid "ATMOSPHERIC_GASSES"
 msgstr "大氣氣體"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5083
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5081
 #, fuzzy
 msgid "SPECIES_PRESENT"
 msgstr "存在的物種"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5141
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5139
 msgid "MOVE_TO_THIS_PATCH"
 msgstr "移動到這個區域"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:548
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:555
 msgid "FREEBUILDING"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:602
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:609
 msgid "THE_AMOUNT_OF_GLUCOSE_HAS_BEEN_REDUCED"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:609
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:616
 msgid "MEGA_YEARS"
 msgstr "百萬年"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:613
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:620
 msgid "YEARS"
 msgstr "年"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:661
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:666
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:668
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:673
 msgid "ATP_PRODUCTION"
 msgstr "ATP產出"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:667
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:674
 msgid "ATP_PRODUCTION_TOO_LOW"
 msgstr "ATP產出太低！"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:714
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:721
 msgid "OSMOREGULATION"
 msgstr "滲透壓調節"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:720
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:727
 msgid "BASE_MOVEMENT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1471
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1500
 msgid "BIOME_LABEL"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1476
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1505
 msgid "BELOW_SEA_LEVEL"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1516
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1545
 msgid "WITH_POPULATION"
+msgstr ""
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:234
+msgid "DELETE"
+msgstr ""
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:301
+#, fuzzy
+msgid "MOVE"
+msgstr "光"
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:367
+msgid "MODIFY"
 msgstr ""
 
 #: ../src/microbe_stage/gui/ExtinctionBox.tscn:55
