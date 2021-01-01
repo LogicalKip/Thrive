@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-27 15:58+0700\n"
+"POT-Creation-Date: 2020-12-30 21:30+0700\n"
 "PO-Revision-Date: 2020-12-22 07:32+0000\n"
 "Last-Translator: icedjuro <milandjurovic625@gmail.com>\n"
 "Language-Team: French <https://translate.revolutionarygamesstudio.com/"
@@ -2190,28 +2190,34 @@ msgstr "Osmorégulation"
 msgid "BASE_MOVEMENT"
 msgstr "Mouvement de Base"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1500
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1498
 msgid "BIOME_LABEL"
 msgstr "Terrain : {0}"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1505
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1503
 msgid "BELOW_SEA_LEVEL"
 msgstr "{0}-{1}m sous la mer"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1545
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1543
 msgid "WITH_POPULATION"
 msgstr "{0} avec population : {1}"
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:234
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:137
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:153
+#, fuzzy
+msgid "MP_COST"
+msgstr "Supprimer la Sélection"
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:228
 msgid "DELETE"
 msgstr ""
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:301
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:294
 #, fuzzy
 msgid "MOVE"
 msgstr "Se déplacer vers la gauche"
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:367
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:361
 msgid "MODIFY"
 msgstr ""
 

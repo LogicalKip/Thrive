@@ -3796,10 +3796,10 @@ size_flags_horizontal = 3
 custom_styles/separator = SubResource( 29 )
 
 [node name="ColorPicker" type="ColorPicker" parent="MicrobeEditorGUI/CellEditor/LeftPanel/MainPanel/VBoxContainer/MarginContainer/VBoxContainer/Appearance/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_left = 136.0
-margin_top = 159.0
-margin_right = 493.0
-margin_bottom = 608.0
+margin_left = 208.0
+margin_top = 231.0
+margin_right = 565.0
+margin_bottom = 680.0
 theme = SubResource( 30 )
 edit_alpha = false
 
@@ -5245,7 +5245,6 @@ __meta__ = {
 }
 
 [node name="OrganellePopupMenu" parent="MicrobeEditorGUI" instance=ExtResource( 55 )]
-visible = false
 anchor_right = 0.15625
 anchor_bottom = 0.183333
 margin_right = 0.0

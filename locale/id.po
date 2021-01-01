@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-27 15:58+0700\n"
+"POT-Creation-Date: 2020-12-30 21:30+0700\n"
 "PO-Revision-Date: 2020-12-22 07:32+0000\n"
 "Last-Translator: Rizky Pramudya <rizkypramudyacj@outlook.co.id>\n"
 "Language-Team: Indonesian <https://translate.revolutionarygamesstudio.com/"
@@ -1989,27 +1989,32 @@ msgstr ""
 msgid "BASE_MOVEMENT"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1500
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1498
 msgid "BIOME_LABEL"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1505
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1503
 msgid "BELOW_SEA_LEVEL"
 msgstr ""
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1545
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1543
 msgid "WITH_POPULATION"
 msgstr ""
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:234
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:137
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:153
+msgid "MP_COST"
+msgstr ""
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:228
 msgid "DELETE"
 msgstr ""
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:301
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:294
 msgid "MOVE"
 msgstr ""
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:367
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:361
 msgid "MODIFY"
 msgstr ""
 

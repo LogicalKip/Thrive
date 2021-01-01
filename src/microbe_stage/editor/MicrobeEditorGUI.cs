@@ -805,22 +805,17 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     public void ShowOrganelleMenu(OrganelleTemplate selectedOrganelle)
     {
         organelleMenu.SelectedOrganelle = selectedOrganelle;
+        organelleMenu.ShowPopup = true;
 
-        // Disable delete/move option for nucleus or the last organelle.
-        if (selectedOrganelle.Definition.Name == nucleus.Name || editor.MicrobeSize < 2)
+        // Disable delete option for nucleus or the last organelle.
+        if (selectedOrganelle.Definition == nucleus || editor.MicrobeSize < 2)
         {
             organelleMenu.EnableDeleteOption = false;
-            organelleMenu.EnableMoveOption = false;
         }
         else
         {
             organelleMenu.EnableDeleteOption = true;
-            organelleMenu.EnableMoveOption = true;
         }
-
-        organelleMenu.RectPosition = GetViewport().GetMousePosition();
-        organelleMenu.Popup_();
-        organelleMenu.RectSize = organelleMenu.RectMinSize;
     }
 
     /// <summary>

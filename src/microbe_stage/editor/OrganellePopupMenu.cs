@@ -21,6 +21,7 @@ public class OrganellePopupMenu : PopupPanel
     private Button deleteButton;
     private Button moveButton;
 
+    private bool showPopup;
     private OrganelleTemplate selectedOrganelle;
     private bool enableDelete = true;
     private bool enableMove = true;
@@ -30,6 +31,29 @@ public class OrganellePopupMenu : PopupPanel
 
     [Signal]
     public delegate void MovePressed();
+
+    public bool ShowPopup
+    {
+        get => showPopup;
+        set
+        {
+            showPopup = value;
+
+            if (ShowPopup)
+            {
+                RectPosition = GetViewport().GetMousePosition();
+                ShowModal();
+                SetAsMinsize();
+            }
+            else
+            {
+                Hide();
+            }
+
+            UpdateDeleteButton();
+            UpdateMoveButton();
+        }
+    }
 
     /// <summary>
     ///   The placed organelle to be shown options of.
@@ -86,6 +110,8 @@ public class OrganellePopupMenu : PopupPanel
 
     private void OnMovePressed()
     {
+        GUICommon.Instance.PlayButtonPressSound();
+
         EmitSignal(nameof(MovePressed));
 
         Hide();
@@ -94,6 +120,26 @@ public class OrganellePopupMenu : PopupPanel
     private void OnModifyPressed()
     {
         throw new NotImplementedException();
+    }
+
+    private void UpdateButtonContentsColour(string optionName, bool pressed)
+    {
+        var icon = GetNode<TextureRect>("VBoxContainer/" + optionName + "/MarginContainer/HBoxContainer/Icon");
+        var nameLabel = GetNode<Label>("VBoxContainer/" + optionName + "/MarginContainer/HBoxContainer/Name");
+        var mpLabel = GetNode<Label>("VBoxContainer/" + optionName + "/MarginContainer/HBoxContainer/MpCost");
+
+        if (pressed)
+        {
+            icon.Modulate = new Color(0, 0, 0);
+            nameLabel.AddColorOverride("font_color", new Color(0, 0, 0));
+            mpLabel.AddColorOverride("font_color", new Color(0, 0, 0));
+        }
+        else
+        {
+            icon.Modulate = new Color(1, 1, 1);
+            nameLabel.AddColorOverride("font_color", new Color(1, 1, 1));
+            mpLabel.AddColorOverride("font_color", new Color(1, 1, 1));
+        }
     }
 
     private void UpdateOrganelleNameLabel()
@@ -111,9 +157,11 @@ public class OrganellePopupMenu : PopupPanel
 
         var mpLabel = deleteButton.GetNode<Label>("MarginContainer/HBoxContainer/MpCost");
 
-        mpLabel.Text = (SelectedOrganelle != null && SelectedOrganelle.PlacedThisSession ?
-            "+" + SelectedOrganelle.Definition.MPCost :
-            "-" + Constants.ORGANELLE_REMOVE_COST) + " MP";
+        mpLabel.Text = string.Format(CultureInfo.CurrentCulture,
+            TranslationServer.Translate("MP_COST"),
+            (SelectedOrganelle != null && SelectedOrganelle.PlacedThisSession) ?
+                "+" + SelectedOrganelle.Definition.MPCost :
+                "-" + Constants.ORGANELLE_REMOVE_COST);
 
         deleteButton.Disabled = !EnableDeleteOption;
     }
@@ -125,9 +173,11 @@ public class OrganellePopupMenu : PopupPanel
 
         var mpLabel = moveButton.GetNode<Label>("MarginContainer/HBoxContainer/MpCost");
 
-        mpLabel.Text = "-" + (SelectedOrganelle != null && SelectedOrganelle.MovedThisSession ?
-            "0" :
-            Constants.ORGANELLE_MOVE_COST.ToString(CultureInfo.CurrentCulture)) + " MP";
+        mpLabel.Text = string.Format(CultureInfo.CurrentCulture,
+            TranslationServer.Translate("MP_COST"),
+            (SelectedOrganelle != null && SelectedOrganelle.MovedThisSession) ?
+                "-0" :
+                "-" + Constants.ORGANELLE_MOVE_COST.ToString(CultureInfo.CurrentCulture));
 
         moveButton.Disabled = !EnableMoveOption;
     }

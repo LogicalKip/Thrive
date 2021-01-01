@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-27 15:58+0700\n"
+"POT-Creation-Date: 2020-12-30 21:30+0700\n"
 "PO-Revision-Date: 2020-12-22 07:32+0000\n"
 "Last-Translator: Georgi Georgiev (Жоро) <g.georgiev.shumen@gmail.com>\n"
 "Language-Team: Bulgarian <https://translate.revolutionarygamesstudio.com/"
@@ -2153,28 +2153,34 @@ msgstr "Осморегулация"
 msgid "BASE_MOVEMENT"
 msgstr "Базово движение"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1500
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1498
 msgid "BIOME_LABEL"
 msgstr "Биом: {0}"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1505
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1503
 msgid "BELOW_SEA_LEVEL"
 msgstr "{0}-{1} м. под морското равнище"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1545
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1543
 msgid "WITH_POPULATION"
 msgstr "{0} с популация от: {1}"
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:234
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:137
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:153
+#, fuzzy
+msgid "MP_COST"
+msgstr "Движение"
+
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:228
 msgid "DELETE"
 msgstr ""
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:301
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:294
 #, fuzzy
 msgid "MOVE"
 msgstr "Движение"
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:367
+#: ../src/microbe_stage/editor/OrganellePopupMenu.tscn:361
 msgid "MODIFY"
 msgstr ""
 
