@@ -223,6 +223,9 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     public NodePath SymmetryIconPath;
 
     [Export]
+    public NodePath CompoundBalancePath;
+
+    [Export]
     public Texture SymmetryIconDefault;
 
     [Export]
@@ -289,7 +292,6 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     private PanelContainer structureTab;
     private PanelContainer appearanceTab;
 
-    private PanelContainer statisticsPanel;
     private Label sizeLabel;
     private Label speedLabel;
     private Label hpLabel;
@@ -365,6 +367,8 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     private TextureButton menuButton;
     private TextureButton helpButton;
 
+    private CompoundBalanceDisplay compoundBalance;
+
     [JsonProperty]
     private EditorTab selectedEditorTab = EditorTab.Report;
 
@@ -404,7 +408,6 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         appearanceTab = GetNode<PanelContainer>(ApperanceTabPath);
         appearanceTabButton = GetNode<Button>(AppearanceTabButtonPath);
 
-        statisticsPanel = GetNode<PanelContainer>(OrganismStatisticsPath);
         sizeLabel = GetNode<Label>(SizeLabelPath);
         speedLabel = GetNode<Label>(SpeedLabelPath);
         hpLabel = GetNode<Label>(HpLabelPath);
@@ -474,6 +477,8 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         islandPopup = GetNode<AcceptDialog>(IslandErrorPath);
         organelleMenu = GetNode<OrganellePopupMenu>(OrganelleMenuPath);
 
+        compoundBalance = GetNode<CompoundBalanceDisplay>(CompoundBalancePath);
+
         menu = GetNode<PauseMenu>(MenuPath);
 
         mapDrawer.OnSelectedPatchChanged = drawer => { UpdateShownPatchDetails(); };
@@ -494,7 +499,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         ApplySelectionMenuTab();
 
         // Fade out for that smooth satisfying transition
-        TransitionManager.Instance.AddScreenFade(Fade.FadeType.FadeOut, 0.5f);
+        TransitionManager.Instance.AddScreenFade(ScreenFade.FadeType.FadeOut, 0.5f);
         TransitionManager.Instance.StartTransitions(editor, nameof(MicrobeEditor.OnFinishTransitioning));
     }
 
@@ -503,38 +508,38 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     /// </summary>
     public void RegisterTooltips()
     {
+        var toolTipManager = ToolTipManager.Instance;
+
         foreach (Control organelleSelection in organelleSelectionElements)
         {
-            ToolTipHelper.RegisterToolTipForControl(
-                organelleSelection, tooltipCallbacks, ToolTipManager.Instance.GetToolTip(
-                    organelleSelection.Name, "organelleSelection"));
+            organelleSelection.RegisterToolTipForControl(toolTipManager.GetToolTip(
+                organelleSelection.Name, "organelleSelection"), tooltipCallbacks);
         }
 
         foreach (Control membraneSelection in membraneSelectionElements)
         {
-            ToolTipHelper.RegisterToolTipForControl(
-                membraneSelection, tooltipCallbacks, ToolTipManager.Instance.GetToolTip(
-                    membraneSelection.Name, "membraneSelection"));
+            membraneSelection.RegisterToolTipForControl(toolTipManager.GetToolTip(
+                membraneSelection.Name, "membraneSelection"), tooltipCallbacks);
         }
 
-        ToolTipHelper.RegisterToolTipForControl(
-            rigiditySlider, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("rigiditySlider", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            helpButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("helpButton"));
-        ToolTipHelper.RegisterToolTipForControl(
-            symmetryButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("symmetryButton", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            undoButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("undoButton", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            redoButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("redoButton", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            newCellButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("newCellButton", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            timeIndicator, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("timeIndicator", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            finishButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("finishButton", "editor"));
-        ToolTipHelper.RegisterToolTipForControl(
-            menuButton, tooltipCallbacks, ToolTipManager.Instance.GetToolTip("menuButton"));
+        rigiditySlider.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("rigiditySlider", "editor"), tooltipCallbacks);
+        helpButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("helpButton"), tooltipCallbacks);
+        symmetryButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("symmetryButton", "editor"), tooltipCallbacks);
+        undoButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("undoButton", "editor"), tooltipCallbacks);
+        redoButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("redoButton", "editor"), tooltipCallbacks);
+        newCellButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("newCellButton", "editor"), tooltipCallbacks);
+        timeIndicator.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("timeIndicator", "editor"), tooltipCallbacks);
+        finishButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("finishButton", "editor"), tooltipCallbacks);
+        menuButton.RegisterToolTipForControl(
+            toolTipManager.GetToolTip("menuButton"), tooltipCallbacks);
     }
 
     public override void _Process(float delta)
@@ -627,12 +632,6 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         initialCellSize = editor.MicrobeHexSize;
     }
 
-    public void ResetStatisticsPanelSize()
-    {
-        // Resets the statistics panel size to fit with the contents
-        statisticsPanel.RectSize = Vector2.Zero;
-    }
-
     public void UpdateSize(int size)
     {
         sizeLabel.Text = size.ToString(CultureInfo.CurrentCulture);
@@ -685,8 +684,6 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         atpProductionBar.UpdateAndMoveBars(SortBarData(energyBalance.Production));
         atpConsumptionBar.UpdateAndMoveBars(SortBarData(energyBalance.Consumption));
 
-        ResetStatisticsPanelSize();
-
         UpdateEnergyBalanceToolTips(energyBalance);
     }
 
@@ -699,7 +696,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         {
             var tooltip = ToolTipManager.Instance.GetToolTip(subBar.Name, "processesProduction");
 
-            ToolTipHelper.RegisterToolTipForControl(subBar, processesTooltipCallbacks, tooltip);
+            subBar.RegisterToolTipForControl(tooltip, processesTooltipCallbacks);
 
             tooltip.Description =
                 $"{SimulationParameters.Instance.GetOrganelleType(subBar.Name).Name}: " +
@@ -710,7 +707,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         {
             var tooltip = ToolTipManager.Instance.GetToolTip(subBar.Name, "processesConsumption");
 
-            ToolTipHelper.RegisterToolTipForControl(subBar, processesTooltipCallbacks, tooltip);
+            subBar.RegisterToolTipForControl(tooltip, processesTooltipCallbacks);
 
             string displayName;
 
@@ -757,6 +754,13 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
 
             tooltip?.WriteOrganelleProcessList(organelleEfficiency[organelle].Processes);
         }
+    }
+
+    // Disable this because the cleanup and inspections disagree
+    // ReSharper disable once RedundantNameQualifier
+    public void UpdateCompoundBalances(System.Collections.Generic.Dictionary<Compound, CompoundBalance> balances)
+    {
+        compoundBalance.UpdateBalances(balances);
     }
 
     public void SetMembraneTooltips(MembraneType referenceMembrane)
@@ -947,7 +951,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         // To prevent being clicked twice
         finishButton.MouseFilter = Control.MouseFilterEnum.Ignore;
 
-        TransitionManager.Instance.AddScreenFade(Fade.FadeType.FadeIn, 0.5f, false);
+        TransitionManager.Instance.AddScreenFade(ScreenFade.FadeType.FadeIn, 0.5f, false);
         TransitionManager.Instance.StartTransitions(editor, nameof(MicrobeEditor.OnFinishEditing));
     }
 
@@ -955,7 +959,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
     {
         GUICommon.Instance.PlayButtonPressSound();
 
-        TransitionManager.Instance.AddScreenFade(Fade.FadeType.FadeIn, 0.5f, false);
+        TransitionManager.Instance.AddScreenFade(ScreenFade.FadeType.FadeIn, 0.5f, false);
         TransitionManager.Instance.StartTransitions(editor, nameof(MicrobeEditor.OnFinishEditing));
     }
 
@@ -1325,8 +1329,6 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         {
             hpIndicator.Hide();
         }
-
-        ResetStatisticsPanelSize();
     }
 
     /// <remarks>
