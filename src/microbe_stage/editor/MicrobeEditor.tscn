@@ -5701,7 +5701,7 @@ HelpCategory = "MicrobeEditor"
 [connection signal="pressed" from="MicrobeEditorGUI/BottomButtons/HBoxContainer/MenuButton" to="MicrobeEditorGUI" method="MenuButtonPressed"]
 [connection signal="pressed" from="MicrobeEditorGUI/BottomButtons/HBoxContainer/HelpButton" to="MicrobeEditorGUI" method="HelpButtonPressed"]
 [connection signal="DeletePressed" from="MicrobeEditorGUI/OrganellePopupMenu" to="." method="RemoveOrganelle"]
-[connection signal="MovePressed" from="MicrobeEditorGUI/OrganellePopupMenu" to="." method="MovingOrganelle"]
+[connection signal="MovePressed" from="MicrobeEditorGUI/OrganellePopupMenu" to="." method="OrganelleInProcessOfMoving"]
 [connection signal="MakeSave" from="PauseMenu" to="." method="SaveGame"]
 [connection signal="OnClosed" from="PauseMenu" to="MicrobeEditorGUI" method="CloseMenu"]
 [connection signal="OnOpenWithKeyPress" from="PauseMenu" to="MicrobeEditorGUI" method="OpenMenu"]

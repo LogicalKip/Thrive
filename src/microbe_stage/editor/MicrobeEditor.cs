@@ -237,7 +237,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     public Color Colour { get; set; }
 
     /// <summary>
-    ///   The name of organelle type that is rendered to be placed
+    ///   The name of organelle type that is selected to be placed
     /// </summary>
     [JsonIgnore]
     public string ActiveActionName
@@ -467,7 +467,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         {
             var organelleToAdd = (OrganelleTemplate)organelle.Clone();
             organelleToAdd.PlacedThisSession = false;
-            organelleToAdd.MovedThisSession = false;
+            organelleToAdd.NumberOfTimesMoved = 0;
             editedSpecies.Organelles.Add(organelleToAdd);
         }
 
@@ -653,13 +653,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             isMovingOrganelle = false;
             ActiveActionName = SelectedActionName;
             GetMouseHex(out int q, out int r);
-            var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(new Hex(q, r));
-            if (organelleHere != null)
-                return;
-
             MoveOrganelle(selectedHex, new Hex(q, r));
-            organelleHere = editedMicrobeOrganelles.GetOrganelleAt(new Hex(q, r));
-            organelleHere.MovedThisSession = true;
             return;
         }
 
@@ -753,7 +747,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         gui.ShowOrganelleMenu(organelle);
     }
 
-    public void MovingOrganelle()
+    public void OrganelleInProcessOfMoving()
     {
         var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
         ActiveActionName = organelleHere.Definition.InternalName;
@@ -762,7 +756,8 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
     public void RemoveOrganelle()
     {
-        int q = selectedHex.Q, r = selectedHex.R;
+        int q = selectedHex.Q;
+        int r = selectedHex.R;
 
         switch (Symmetry)
         {
@@ -1678,7 +1673,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         editedMicrobeOrganelles.Remove(data.Organelle);
         data.Organelle.Position = data.NewLocation;
         editedMicrobeOrganelles.Add(data.Organelle);
-        data.Organelle.MovedThisSession = true;
+        data.Organelle.NumberOfTimesMoved++;
     }
 
     [DeserializedCallbackAllowed]
@@ -1688,15 +1683,15 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         editedMicrobeOrganelles.Remove(data.Organelle);
         data.Organelle.Position = data.OldLocation;
         editedMicrobeOrganelles.Add(data.Organelle);
-        data.Organelle.MovedThisSession = false;
+        data.Organelle.NumberOfTimesMoved--;
     }
 
     private void MoveOrganelle(Hex oldLocation, Hex newLocation)
     {
         var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(oldLocation);
 
-        // Dont allow deletion of nucleus or the last organelle
-        if (organelleHere.Definition.InternalName == "nucleus" || MicrobeSize < 2)
+        // Make sure organelle doesn't overlap
+        if (editedMicrobeOrganelles.GetOrganelleAt(newLocation) != null)
             return;
 
         // If it was moved this session, it is free to move again
