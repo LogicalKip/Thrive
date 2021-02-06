@@ -13,7 +13,7 @@ public class OrganelleTemplate : IPositionedOrganelle, ICloneable
     [JsonProperty]
     public readonly OrganelleDefinition Definition;
 
-    public OrganelleTemplate(OrganelleDefinition definition, Hex location, int rotation, uint numberOfTimesMoved = 0)
+    public OrganelleTemplate(OrganelleDefinition definition, Hex location, int rotation, int numberOfTimesMoved = 0)
     {
         Definition = definition;
         Position = location;
@@ -26,7 +26,7 @@ public class OrganelleTemplate : IPositionedOrganelle, ICloneable
     /// </summary>
     public bool PlacedThisSession { get; set; }
 
-    public uint NumberOfTimesMoved { get; set; }
+    public int NumberOfTimesMoved { get; set; }
 
     /// <summary>
     ///   Used to flag whether this Organelle was moved during the current editor session.
