@@ -27,11 +27,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     [JsonProperty]
     public float CurrentOrganelleCost;
 
-    /// <summary>
-    ///   The organelle type that is selected to be used but not necessarily rendered
-    /// </summary>
-    public string SelectedActionName;
-
     private Vector3 arrowPosition = Vector3.Zero;
 
     private MicrobeSymmetry symmetry = MicrobeSymmetry.None;
@@ -39,9 +34,10 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     private Hex selectedHex;
 
     /// <summary>
-    ///   If an organelle is in the process of being moved but a new location hasn't been selected yet
+    ///   Organelle that is in the process of being moved but a new location hasn't been selected yet
+    ///   If null, no organelle is in the process of moving
     /// </summary>
-    private bool isMovingOrganelle;
+    private OrganelleTemplate movingOrganelle;
 
     /// <summary>
     ///   Object camera is over. Needs to be defined before camera for saving to work
@@ -648,10 +644,9 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         if (ActiveActionName == null)
             return;
 
-        if (isMovingOrganelle)
+        if (movingOrganelle != null)
         {
-            isMovingOrganelle = false;
-            ActiveActionName = SelectedActionName;
+            movingOrganelle = null;
             GetMouseHex(out int q, out int r);
             MoveOrganelle(selectedHex, new Hex(q, r));
             return;
@@ -749,9 +744,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
     public void OrganelleInProcessOfMoving()
     {
-        var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
-        ActiveActionName = organelleHere.Definition.InternalName;
-        isMovingOrganelle = true;
+        movingOrganelle = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
     }
 
     public void RemoveOrganelle()
@@ -1349,12 +1342,15 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     /// </summary>
     private void RenderHighlightedOrganelle(int q, int r, int rotation)
     {
-        if (ActiveActionName == null)
+        if (movingOrganelle == null && ActiveActionName == null)
             return;
 
         // TODO: this should be changed into a function parameter
         var toBePlacedOrganelle = SimulationParameters.Instance.GetOrganelleType(
-            ActiveActionName);
+            movingOrganelle != null
+            ? movingOrganelle.Definition.InternalName
+            : ActiveActionName
+        );
 
         bool showModel = true;
 
