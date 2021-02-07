@@ -938,6 +938,16 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         }
     }
 
+    public void OnMovePressed()
+    {
+        editor.OrganelleInProcessOfMoving(organelleMenu.SelectedOrganelle);
+    }
+
+    public void OnDeletePressed()
+    {
+        editor.RemoveOrganelle(organelleMenu.SelectedOrganelle.Position);
+    }
+
     public void UpdateReportTabPatchName(string patch)
     {
         reportTabPatchNameLabel.Text = patch;

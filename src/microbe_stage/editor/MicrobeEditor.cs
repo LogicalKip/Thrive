@@ -31,12 +31,11 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
     private MicrobeSymmetry symmetry = MicrobeSymmetry.None;
 
-    private Hex selectedHex;
-
     /// <summary>
     ///   Organelle that is in the process of being moved but a new location hasn't been selected yet
     ///   If null, no organelle is in the process of moving
     /// </summary>
+    [JsonProperty]
     private OrganelleTemplate movingOrganelle;
 
     /// <summary>
@@ -641,16 +640,16 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     [RunOnKeyDown("e_primary")]
     public void PlaceOrganelle()
     {
-        if (ActiveActionName == null)
-            return;
-
         if (movingOrganelle != null)
         {
-            movingOrganelle = null;
             GetMouseHex(out int q, out int r);
-            MoveOrganelle(selectedHex, new Hex(q, r));
+            MoveOrganelle(movingOrganelle.Position, new Hex(q, r));
+            movingOrganelle = null;
             return;
         }
+
+        if (ActiveActionName == null)
+            return;
 
         if (AddOrganelle(ActiveActionName))
         {
@@ -737,20 +736,18 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         if (organelle == null)
             return;
 
-        selectedHex = new Hex(q, r);
-
         gui.ShowOrganelleMenu(organelle);
     }
 
-    public void OrganelleInProcessOfMoving()
+    public void OrganelleInProcessOfMoving(OrganelleTemplate selectedOrganelle)
     {
-        movingOrganelle = editedMicrobeOrganelles.GetOrganelleAt(selectedHex);
+        movingOrganelle = selectedOrganelle;
     }
 
-    public void RemoveOrganelle()
+    public void RemoveOrganelle(Hex hex)
     {
-        int q = selectedHex.Q;
-        int r = selectedHex.R;
+        int q = hex.Q;
+        int r = hex.R;
 
         switch (Symmetry)
         {
@@ -1346,11 +1343,9 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             return;
 
         // TODO: this should be changed into a function parameter
-        var toBePlacedOrganelle = SimulationParameters.Instance.GetOrganelleType(
-            movingOrganelle != null
-            ? movingOrganelle.Definition.InternalName
-            : ActiveActionName
-        );
+        var toBePlacedOrganelle = movingOrganelle != null ?
+            movingOrganelle.Definition :
+            SimulationParameters.Instance.GetOrganelleType(ActiveActionName);
 
         bool showModel = true;
 
