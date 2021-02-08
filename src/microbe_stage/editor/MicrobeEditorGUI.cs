@@ -928,7 +928,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         organelleMenu.ShowPopup = true;
 
         // Disable delete option for nucleus or the last organelle.
-        if (selectedOrganelle.Definition == nucleus || editor.MicrobeSize < 2)
+        if (editor.MicrobeSize < 2)
         {
             organelleMenu.EnableDeleteOption = false;
         }

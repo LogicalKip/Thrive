@@ -643,7 +643,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         if (movingOrganelle != null)
         {
             GetMouseHex(out int q, out int r);
-            MoveOrganelle(movingOrganelle.Position, new Hex(q, r));
+            MoveOrganelle(movingOrganelle, movingOrganelle.Position, new Hex(q, r));
             movingOrganelle = null;
             return;
         }
@@ -1347,6 +1347,8 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             movingOrganelle.Definition :
             SimulationParameters.Instance.GetOrganelleType(ActiveActionName);
 
+        if (movingOrganelle != null) rotation = movingOrganelle.Orientation;
+
         bool showModel = true;
 
         foreach (var hex in toBePlacedOrganelle.GetRotatedHexes(rotation))
@@ -1677,20 +1679,19 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         data.Organelle.NumberOfTimesMoved--;
     }
 
-    private void MoveOrganelle(Hex oldLocation, Hex newLocation)
+    private void MoveOrganelle(OrganelleTemplate organelle, Hex oldLocation, Hex newLocation)
     {
-        var organelleHere = editedMicrobeOrganelles.GetOrganelleAt(oldLocation);
-
         // Make sure organelle doesn't overlap
         if (editedMicrobeOrganelles.GetOrganelleAt(newLocation) != null)
             return;
 
-        // If it was moved this session, it is free to move again
-        int cost = organelleHere.MovedThisSession ? 0 : Constants.ORGANELLE_MOVE_COST;
+        // If it was already moved this session, it is free to move again
+        // Also free if not moved(but can be rotated)
+        int cost = (organelle.MovedThisSession || oldLocation == newLocation) ? 0 : Constants.ORGANELLE_MOVE_COST;
 
         var action = new MicrobeEditorAction(this, cost,
             DoOrganelleMoveAction, UndoOrganelleMoveAction,
-            new MoveActionData(organelleHere, oldLocation, newLocation));
+            new MoveActionData(organelle, oldLocation, newLocation));
 
         EnqueueAction(action);
     }
