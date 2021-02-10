@@ -1020,6 +1020,11 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
         GUICommon.Instance.PlayCustomSound(unableToPlaceHexSound);
     }
 
+    internal void BlockActionWhileMoving()
+    {
+        GUICommon.Instance.PlayCustomSound(unableToPlaceHexSound);
+    }
+
     /// <summary>
     ///   Lock / unlock the organelles  that need a nuclues
     /// </summary>
@@ -1066,6 +1071,12 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
 
     internal void OnFinishEditingClicked()
     {
+        if (editor.MovingOrganelle != null)
+        {
+            BlockActionWhileMoving();
+            return;
+        }
+
         GUICommon.Instance.PlayButtonPressSound();
 
         // Show warning popup if trying to exit with negative atp production
@@ -1203,7 +1214,7 @@ public class MicrobeEditorGUI : Node, ISaveLoadedTracked
 
     internal void UpdateRigiditySlider(int value, int mutationPoints)
     {
-        if (mutationPoints >= Constants.MEMBRANE_RIGIDITY_COST_PER_STEP)
+        if (mutationPoints >= Constants.MEMBRANE_RIGIDITY_COST_PER_STEP && editor.MovingOrganelle == null)
         {
             rigiditySlider.Editable = true;
         }
