@@ -643,7 +643,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         if (MovingOrganelle != null)
         {
             GetMouseHex(out int q, out int r);
-            MoveOrganelle(MovingOrganelle, MovingOrganelle.Position, new Hex(q, r));
+            MoveOrganelle(MovingOrganelle, MovingOrganelle.Position, new Hex(q, r), MovingOrganelle.Orientation, organelleRot);
             MovingOrganelle = null;
             return;
         }
@@ -1670,6 +1670,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     {
         var data = (MoveActionData)action.Data;
         data.Organelle.Position = data.NewLocation;
+        data.Organelle.Orientation = data.NewRotation;
 
         if (editedMicrobeOrganelles.Contains(data.Organelle))
             UpdateAlreadyPlacedVisuals();
@@ -1684,11 +1685,12 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     {
         var data = (MoveActionData)action.Data;
         data.Organelle.Position = data.OldLocation;
+        data.Organelle.Orientation = data.OldRotation;
         UpdateAlreadyPlacedVisuals();
         data.Organelle.NumberOfTimesMoved--;
     }
 
-    private void MoveOrganelle(OrganelleTemplate organelle, Hex oldLocation, Hex newLocation)
+    private void MoveOrganelle(OrganelleTemplate organelle, Hex oldLocation, Hex newLocation, int oldRotation, int newRotation)
     {
         // Make sure organelle doesn't overlap
         if (editedMicrobeOrganelles.GetOrganelleAt(newLocation) != null)
@@ -1701,7 +1703,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         var action = new MicrobeEditorAction(this, cost,
             DoOrganelleMoveAction, UndoOrganelleMoveAction,
             nameof(MoveOrganelle),
-            new MoveActionData(organelle, oldLocation, newLocation));
+            new MoveActionData(organelle, oldLocation, newLocation, oldRotation, newRotation));
 
         EnqueueAction(action);
     }
