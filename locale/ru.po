@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-06 13:16-0800\n"
+"POT-Creation-Date: 2021-02-11 07:46-0800\n"
 "PO-Revision-Date: 2021-01-27 16:24+0000\n"
 "Last-Translator: LibreHacker <librehacker@snopyta.org>\n"
 "Language-Team: Russian <https://translate.revolutionarygamesstudio.com/"
@@ -381,7 +381,7 @@ msgid "ZOOM_IN"
 msgstr "Увеличить"
 
 #: ../simulation_parameters/common/input_options.json:67
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1013
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1017
 msgid "EDITOR"
 msgstr "Редактор"
 
@@ -472,6 +472,11 @@ msgstr "Сделать изображение экрана"
 #: ../simulation_parameters/common/input_options.json:164
 msgid "SHOW_HELP"
 msgstr "Показать помощь"
+
+#: ../simulation_parameters/common/input_options.json:168
+#, fuzzy
+msgid "TOGGLE_FULLSCREEN"
+msgstr "Полный экран"
 
 #: ../simulation_parameters/microbe_stage/bio_processes.json:3
 #: ../simulation_parameters/microbe_stage/bio_processes.json:102
@@ -705,21 +710,21 @@ msgstr "Солнечный свет"
 #: ../simulation_parameters/microbe_stage/organelles.json:23
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2727
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2791
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2521
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2569
 msgid "PREDATORY_PILUS"
 msgstr "Хищная Ворсинка"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:52
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1537
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1601
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2165
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2213
 msgid "RUSTICYANIN"
 msgstr "Рустицианин"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:85
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1856
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:1920
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2232
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2280
 msgid "NITROGENASE"
 msgstr "Нитрогеназа"
 
@@ -736,7 +741,7 @@ msgstr "Хемосинтезирующие белки"
 #: ../simulation_parameters/microbe_stage/organelles.json:184
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2144
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2208
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2299
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2347
 msgid "OXYTOXISOME"
 msgstr "Окситоксисома"
 
@@ -748,49 +753,49 @@ msgstr "Тилакоиды"
 #: ../simulation_parameters/microbe_stage/organelles.json:249
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:602
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:666
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1963
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2011
 msgid "METABOLOSOMES"
 msgstr "Метаболосомы"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:285
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4350
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4414
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3083
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3131
 msgid "NITROGEN_FIXING_PLASTID"
 msgstr "Азотфиксация Пластид"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:321
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4065
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4129
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3013
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3061
 msgid "CHEMOPLAST"
 msgstr "Хемопласт"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:351
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2444
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2508
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2455
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2503
 msgid "FLAGELLUM"
 msgstr "Жгутик"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:378
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4669
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4733
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3151
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3199
 msgid "VACUOLE"
 msgstr "Вакуоль"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:411
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3181
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3245
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2811
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2859
 msgid "MITOCHONDRION"
 msgstr "Митохондрия"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:444
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4870
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:4934
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3220
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3268
 msgid "TOXIN_VACUOLE"
 msgstr ""
 "Токсичная\n"
@@ -799,21 +804,21 @@ msgstr ""
 #: ../simulation_parameters/microbe_stage/organelles.json:484
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3469
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3533
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2878
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2926
 msgid "CHLOROPLAST"
 msgstr "Хлоропласт"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:513
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:350
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:414
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1804
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1852
 msgid "CYTOPLASM"
 msgstr "Цитоплазма"
 
 #: ../simulation_parameters/microbe_stage/organelles.json:578
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2979
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3043
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2744
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2792
 msgid "NUCLEUS"
 msgstr "Ядро"
 
@@ -1187,7 +1192,7 @@ msgid "LOAD_GAME"
 msgstr "Загрузить игру"
 
 #: ../src/general/PauseMenu.tscn:79
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4343
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4391
 msgid "STATISTICS"
 msgstr "Статистика"
 
@@ -1455,7 +1460,7 @@ msgstr ""
 "ферментацию."
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:896
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2030
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2078
 msgid "THYLAKOID"
 msgstr "Тилакоид"
 
@@ -1578,7 +1583,7 @@ msgstr "Проткните этим другие клетки."
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2853
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:2917
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2587
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2635
 msgid "CILIA"
 msgstr "Ресничка"
 
@@ -1605,13 +1610,13 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3771
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3835
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2945
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2993
 msgid "THERMOPLAST"
 msgstr "Термопласт"
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:3938
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:7322
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:774
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:801
 msgid "TEMPERATURE"
 msgstr "Температура"
 
@@ -1662,7 +1667,7 @@ msgstr "Биолюминесцентная вакуоль"
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5317
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5381
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3477
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3525
 msgid "NORMAL"
 msgstr "Обычная"
 
@@ -1681,7 +1686,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5577
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5641
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3549
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3597
 msgid "DOUBLE"
 msgstr "Двойная"
 
@@ -1691,7 +1696,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5833
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:5897
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3621
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3669
 msgid "CELLULOSE"
 msgstr "Целлюлоза"
 
@@ -1714,7 +1719,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6160
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6224
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3693
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3741
 msgid "CHITIN"
 msgstr "Хитин"
 
@@ -1731,7 +1736,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6487
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6551
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3770
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3818
 msgid "CALCIUM_CARBONATE"
 msgstr "Углекислый кальций"
 
@@ -1741,7 +1746,7 @@ msgstr ""
 
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6848
 #: ../src/gui_common/tooltip/ToolTipManager.tscn:6912
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3843
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3891
 msgid "SILICA"
 msgstr "Кремнезём"
 
@@ -1812,9 +1817,9 @@ msgid "PRESSURE_SHORT"
 msgstr "Давл."
 
 #: ../src/microbe_stage/MicrobeStage.tscn:1062
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4527
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5162
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:850
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4575
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5210
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:877
 msgid "COMPOUNDS"
 msgstr "Соединения"
 
@@ -1879,267 +1884,267 @@ msgstr "Клеточные Процессы"
 msgid "COMPOUND_BALANCE_TITLE"
 msgstr "Компонентный Баланс"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:530
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:1128
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:525
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:1126
 msgid "LOADING_MICROBE_EDITOR"
 msgstr "Загрузка редактора микроба"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:532
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:527
 msgid "WAITING_FOR_AUTO_EVO"
 msgstr "Ожидание авто-эво:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:1981
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:1993
 msgid "AUTO_EVO_FAILED"
 msgstr "Авто-эво не удалось запустить"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.cs:1982
+#: ../src/microbe_stage/editor/MicrobeEditor.cs:1994
 msgid "AUTO_EVO_RUN_STATUS"
 msgstr "статус запуска:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:969
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:973
 msgid "REPORT"
 msgstr "Сообщить"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:991
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:995
 msgid "PATCH_MAP"
 msgstr "Карта Участка"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1070
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1074
 msgid "ORGANISM_STATISTICS"
 msgstr "Статистика Организма"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1131
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1135
 msgid "SPEED_COLON"
 msgstr "Скорость:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1161
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1165
 msgid "HP_COLON"
 msgstr "ОЗ:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1191
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1195
 msgid "SIZE_COLON"
 msgstr "Размер:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1212
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1216
 msgid "GENERATION_COLON"
 msgstr "Поколение:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1254
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1258
 msgid "ATP_BALANCE"
 msgstr "АТФ баланс"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1463
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1466
 msgid "MUTATION_POINTS"
 msgstr "Мутационные Очки"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1551
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1599
 msgid "STRUCTURE"
 msgstr "Структура"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1574
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1622
 msgid "APPEARANCE"
 msgstr "Внешний вид"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1597
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1645
 msgid "BEHAVIOR"
 msgstr "Поведение"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1648
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1696
 msgid "SEARCH_DOT_DOT_DOT"
 msgstr "Поиск..."
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1708
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1756
 msgid "STRUCTURAL"
 msgstr "Структурный"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1871
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:1919
 msgid "PROTEINS"
 msgstr "Белки"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2099
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2147
 msgid "CHEMOSYNTHESIZING_PROTEINS_TWO_LINES"
 msgstr ""
 "Хемосинт-\n"
 "езирующие белки"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2364
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2412
 msgid "EXTERNAL"
 msgstr "Внешние"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2652
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:2700
 msgid "ORGANELLES"
 msgstr "Органеллы"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3247
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3295
 msgid "N_A_MP"
 msgstr "Н/Д МО"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3286
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3334
 msgid "BIOLUMESCENT_VACUOLE"
 msgstr ""
 "Биолюминесцентная\n"
 "вакуоль"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3383
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3431
 msgid "MEMBRANE_TYPES"
 msgstr "Типы мембран"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3867
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3915
 msgid "FLUIDITY_RIGIDITY"
 msgstr "Подвижность / Жесткость"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3905
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:3953
 msgid "COLOUR"
 msgstr "Окраска"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4050
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4098
 msgid "SPECIES_NAME_DOT_DOT_DOT"
 msgstr "Названия видов..."
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4079
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4127
 msgid "CONFIRM_CAPITAL"
 msgstr "ПОДТВЕРДИТЬ"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4088
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4136
 msgid "NEGATIVE_ATP_BALANCE"
 msgstr "Отрицательный АТФ баланс"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4089
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4137
 msgid "NEGATIVE_ATP_BALANCE_TEXT"
 msgstr ""
 "Твой микроб не производит нужное количество АТФ для выживания!\n"
 "Желаешь продолжить?"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4097
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4145
 msgid "DISCONNECTED_ORGANELLES"
 msgstr "Отсоединенные Органеллы"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4098
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4146
 msgid "DISCONNECTED_ORGANELLES_TEXT"
 msgstr ""
 "Среди размещённых органелл, имеются несоединённые с остальными.\n"
 "Пожалуйста соедини все размещённые органеллы с другими или отмени свои "
 "действия."
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4197
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4245
 msgid "AUTO_EVO"
 msgstr "Авто-Эво"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4210
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4258
 msgid "FOOD_CHAIN"
 msgstr "Пищевая Цепочка"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4223
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4271
 #, fuzzy
 msgid "TIMELINE"
 msgstr "Срок"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4276
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4324
 msgid "AUTO_EVO_RESULTS"
 msgstr "Результаты авто-эво:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4295
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4343
 msgid "EXTERNAL_EFFECTS"
 msgstr "Внешние эффекты:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4352
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4400
 #, fuzzy
 msgid "SPECIES_POPULATION"
 msgstr "Виды:"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4385
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4814
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4433
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4862
 msgid "PHYSICAL_CONDITIONS"
 msgstr "Физические условия"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4489
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4997
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:845
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4537
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5045
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:872
 msgid "ATMOSPHERIC_GASSES"
 msgstr "Атмосферные газы"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4583
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5509
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4631
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5557
 msgid "NEXT_CAPITAL"
 msgstr "ДАЛЕЕ"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4696
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4744
 msgid "SELECT_A_PATCH"
 msgstr "Выбери участок для просмотра деталей"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4731
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:4779
 msgid "CURRENT_LOCATION_CAPITAL"
 msgstr "ТЕКУЩАЯ ЛОКАЦИЯ"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5422
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5470
 msgid "SPECIES_PRESENT"
 msgstr "Присутствующие виды"
 
-#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5480
+#: ../src/microbe_stage/editor/MicrobeEditor.tscn:5528
 msgid "MOVE_TO_THIS_PATCH"
 msgstr "Двигаться к этому участку"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:553
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:568
 #, fuzzy
 msgid "FREEBUILDING"
 msgstr "Свободное строительство"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:607
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:634
 msgid "THE_AMOUNT_OF_GLUCOSE_HAS_BEEN_REDUCED"
 msgstr ""
 "Количество глюкозы было уменьшено до {0} по сравнению с предыдущим "
 "количеством."
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:614
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:641
 msgid "MEGA_YEARS"
 msgstr "Мегагод"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:618
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:842
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:843
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:845
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:847
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:850
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:645
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:869
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:870
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:872
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:874
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:877
 msgid "YEARS"
 msgstr "лет"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:660
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:665
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:687
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:692
 msgid "ATP_PRODUCTION"
 msgstr "АТФ производство"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:666
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:693
 msgid "ATP_PRODUCTION_TOO_LOW"
 msgstr "АТФ ПРОИЗВОДСТВО СЛИШКОМ МАЛО!"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:711
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:738
 msgid "OSMOREGULATION"
 msgstr "Осморегуляция"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:717
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:744
 #, fuzzy
 msgid "BASE_MOVEMENT"
 msgstr "Базовое Передвижение"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:847
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:874
 #, fuzzy
 msgid "SPECIES_LIST"
 msgstr "Присутствующие виды"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1563
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1613
 msgid "BIOME_LABEL"
 msgstr "Биом: {0}"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1568
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1618
 msgid "BELOW_SEA_LEVEL"
 msgstr "{0}-{1}м ниже уровня моря"
 
-#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1596
+#: ../src/microbe_stage/editor/MicrobeEditorGUI.cs:1646
 msgid "WITH_POPULATION"
 msgstr "{0} из популяции: {1}"
 
-#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:161
-#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:177
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:163
+#: ../src/microbe_stage/editor/OrganellePopupMenu.cs:179
 #, fuzzy
 msgid "MP_COST"
 msgstr "Удалить выбранные"

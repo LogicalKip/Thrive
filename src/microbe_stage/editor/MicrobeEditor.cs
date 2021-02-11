@@ -1355,8 +1355,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             MovingOrganelle.Definition :
             SimulationParameters.Instance.GetOrganelleType(ActiveActionName);
 
-        if (MovingOrganelle != null) rotation = MovingOrganelle.Orientation;
-
         bool showModel = true;
 
         foreach (var hex in toBePlacedOrganelle.GetRotatedHexes(rotation))
