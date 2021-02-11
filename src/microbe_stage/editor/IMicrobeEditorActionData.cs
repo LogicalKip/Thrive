@@ -41,7 +41,8 @@ public class MoveActionData : IMicrobeEditorActionData
     public int OldRotation;
     public int NewRotation;
 
-    public MoveActionData(OrganelleTemplate organelle, Hex oldLocation, Hex newLocation, int oldRotation, int newRotation)
+    public MoveActionData(OrganelleTemplate organelle, Hex oldLocation, Hex newLocation, int oldRotation,
+        int newRotation)
     {
         Organelle = organelle;
         OldLocation = oldLocation;
