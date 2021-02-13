@@ -21,14 +21,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     [JsonProperty]
     public string NewName;
 
-    /// <summary>
-    ///   Cost of the organelle that is about to be placed
-    /// </summary>
-    [JsonProperty]
-    public float CurrentOrganelleCost;
-
-    private Vector3 arrowPosition = Vector3.Zero;
-
     private MicrobeSymmetry symmetry = MicrobeSymmetry.None;
 
     /// <summary>
@@ -857,6 +849,32 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     }
 
     /// <summary>
+    ///   Returns the cost of the organelle that is about to be placed
+    /// </summary>
+    public float CalculateCurrentOrganelleCost()
+    {
+        if (string.IsNullOrEmpty(ActiveActionName) || !ShowHover)
+            return 0;
+
+        var cost = SimulationParameters.Instance.GetOrganelleType(ActiveActionName).MPCost;
+
+        switch (Symmetry)
+        {
+            case MicrobeSymmetry.XAxisSymmetry:
+                cost *= 2;
+                break;
+            case MicrobeSymmetry.FourWaySymmetry:
+                cost *= 4;
+                break;
+            case MicrobeSymmetry.SixWaySymmetry:
+                cost *= 6;
+                break;
+        }
+
+        return cost;
+    }
+
+    /// <summary>
     ///   Returns true when the player is allowed to move to the specified patch
     /// </summary>
     /// <returns>True if the patch move requested is valid. False otherwise</returns>
@@ -925,6 +943,8 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             return;
 
         MutationPoints = (MutationPoints + change).Clamp(0, Constants.BASE_MUTATION_POINTS);
+
+        gui.UpdateMutationPointsBar();
     }
 
     /// <summary>
@@ -993,7 +1013,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
     ///   Updates the arrowPosition variable to the top most point of the middle 3 rows
     ///   Should be called on any layout change
     /// </summary>
-    private void UpdateArrow()
+    private void UpdateArrow(bool animateMovement = true)
     {
         // The calculation falls back to 0 if there are no hexes found in the middle 3 rows
         var highestPointInMiddleRows = 0.0f;
@@ -1017,7 +1037,17 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
             }
         }
 
-        arrowPosition = new Vector3(0, 0, highestPointInMiddleRows - Constants.EDITOR_ARROW_OFFSET);
+        if (animateMovement)
+        {
+            GUICommon.Instance.Tween.InterpolateProperty(editorArrow, "translation:z", editorArrow.Translation.z,
+                highestPointInMiddleRows - Constants.EDITOR_ARROW_OFFSET, Constants.EDITOR_ARROW_INTERPOLATE_SPEED,
+                Tween.TransitionType.Expo, Tween.EaseType.Out);
+            GUICommon.Instance.Tween.Start();
+        }
+        else
+        {
+            editorArrow.Translation = new Vector3(0, 0, highestPointInMiddleRows - Constants.EDITOR_ARROW_OFFSET);
+        }
     }
 
     /// <summary>
@@ -1088,10 +1118,7 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
         UpdateUndoRedoButtons();
 
-        UpdateArrow();
-
-        // Force no lerp on init
-        editorArrow.Translation = arrowPosition;
+        UpdateArrow(false);
 
         // Send freebuild value to GUI
         gui.NotifyFreebuild(FreeBuilding);
@@ -1284,9 +1311,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
         // Show the organelle that is about to be placed
         if (ActiveActionName != null && ShowHover)
         {
-            CurrentOrganelleCost = SimulationParameters.Instance.GetOrganelleType(
-                ActiveActionName).MPCost;
-
             GetMouseHex(out int q, out int r);
 
             // Can place stuff at all?
@@ -1303,7 +1327,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
                 case MicrobeSymmetry.XAxisSymmetry:
                 {
-                    CurrentOrganelleCost *= 2;
                     RenderHighlightedOrganelle(q, r, organelleRot);
                     RenderHighlightedOrganelle(-1 * q, r + q, 6 + (-1 * organelleRot));
                     break;
@@ -1311,7 +1334,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
                 case MicrobeSymmetry.FourWaySymmetry:
                 {
-                    CurrentOrganelleCost *= 4;
                     RenderHighlightedOrganelle(q, r, organelleRot);
                     RenderHighlightedOrganelle(-1 * q, r + q, 6 + (-1 * organelleRot));
                     RenderHighlightedOrganelle(-1 * q, -1 * r, (organelleRot + 180) % 6);
@@ -1322,7 +1344,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
 
                 case MicrobeSymmetry.SixWaySymmetry:
                 {
-                    CurrentOrganelleCost *= 6;
                     RenderHighlightedOrganelle(q, r, organelleRot);
                     RenderHighlightedOrganelle(-1 * r, r + q, (organelleRot + 1) % 6);
                     RenderHighlightedOrganelle(-1 * (r + q), q, (organelleRot + 2) % 6);
@@ -1333,14 +1354,6 @@ public class MicrobeEditor : NodeWithInput, ILoadableGameState, IGodotEarlyNodeR
                 }
             }
         }
-        else
-        {
-            CurrentOrganelleCost = 0;
-        }
-
-        editorArrow.Translation = editorArrow.Translation.LinearInterpolate(
-            arrowPosition,
-            Constants.EDITOR_ARROW_INTERPOLATE_SPEED * delta);
     }
 
     /// <summary>
